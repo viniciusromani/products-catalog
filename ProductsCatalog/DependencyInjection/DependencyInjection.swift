@@ -1,4 +1,5 @@
 import Swinject
+import Moya
 
 class DependencyInjection {
     
@@ -6,8 +7,10 @@ class DependencyInjection {
     
     static func configure() -> Container {
         self.injectCoordinators(on: self.container)
+        self.injectNetworkProvider(on: self.container)
         self.injectDataSource(on: self.container)
         self.injectRepository(on: self.container)
+        self.injectUseCase(on: self.container)
         self.injectPresenter(on: self.container)
         self.injectScene(on: self.container)
         return self.container
@@ -60,17 +63,33 @@ extension DependencyInjection {
         }
     }
     
+    private static func injectNetworkProvider(on container: Container) {
+        container.register(MoyaProvider<Endpoint>.self) { _ in
+            return MoyaProvider<Endpoint>()
+        }
+    }
+    
     private static func injectDataSource(on container: Container) {
-        
+        container.register(ProductsDataSource.self) { resolver in
+            return ApiProductsDataSource(provider: resolver.resolve(MoyaProvider<Endpoint>.self)!)
+        }
     }
 
     private static func injectRepository(on container: Container) {
-        
+        container.register(ProductsRepository.self) { resolver in
+            return ProductsRepository(dataSource: resolver.resolve(ProductsDataSource.self)!)
+        }
+    }
+    
+    private static func injectUseCase(on container: Container) {
+        container.register(RetrieveProductsUseCase.self) { resolver in
+            return RetrieveProductsUseCase(repository: resolver.resolve(ProductsRepository.self)!)
+        }
     }
     
     private static func injectPresenter(on container: Container) {
-        container.register(HomePresenter.self) { _ in
-            return HomePresenter()
+        container.register(HomePresenter.self) { resolver in
+            return HomePresenter(retrieveProductsUseCase: resolver.resolve(RetrieveProductsUseCase.self)!)
         }
         
         container.register(CartPresenter.self) { _ in

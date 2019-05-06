@@ -1,7 +1,8 @@
 import UIKit
 
 protocol HomeViewProtocol: class {
-    
+    func productsFetched()
+    func errorGettingProducts()
 }
 
 class HomeViewController: UIViewController {
@@ -23,8 +24,20 @@ class HomeViewController: UIViewController {
         
         self.view = self.homeView
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidLoad()
+        
+        self.presenter.retrieveProducts()
+    }
 }
 
 extension HomeViewController: HomeViewProtocol {
+    func productsFetched() {
+        print("ok")
+    }
     
+    func errorGettingProducts() {
+        print("error")
+    }
 }
