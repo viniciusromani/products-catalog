@@ -27,6 +27,7 @@
 		A17BD24022803DB40011C488 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17BD23F22803DB40011C488 /* CartView.swift */; };
 		A17BD24422803ED30011C488 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17BD24322803ED30011C488 /* HomeCoordinator.swift */; };
 		A17BD24622803EDB0011C488 /* CartCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17BD24522803EDB0011C488 /* CartCoordinator.swift */; };
+		A17BD248228048FD0011C488 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17BD247228048FD0011C488 /* TabController.swift */; };
 		BE0F1AE08FC97AA591A08DD4 /* Pods_ProductsCatalogTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68F03089F5EF6A827402E553 /* Pods_ProductsCatalogTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		A17BD23F22803DB40011C488 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		A17BD24322803ED30011C488 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		A17BD24522803EDB0011C488 /* CartCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCoordinator.swift; sourceTree = "<group>"; };
+		A17BD247228048FD0011C488 /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		A7572663A730EAC039DBBBC5 /* Pods-ProductsCatalog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProductsCatalog.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProductsCatalog/Pods-ProductsCatalog.debug.xcconfig"; sourceTree = "<group>"; };
 		B21D312E518213DE0B07CEFF /* Pods-ProductsCatalogTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProductsCatalogTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProductsCatalogTests/Pods-ProductsCatalogTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DC4756C0D804DAFC02518A6A /* Pods-ProductsCatalog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProductsCatalog.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProductsCatalog/Pods-ProductsCatalog.release.xcconfig"; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				A17BD22222803B590011C488 /* Application */,
 				A17BD21E22803B480011C488 /* Coordinator.swift */,
 				A17BD21F22803B480011C488 /* NavigationCoordination.swift */,
+				A17BD247228048FD0011C488 /* TabController.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A17BD22022803B480011C488 /* Coordinator.swift in Sources */,
+				A17BD248228048FD0011C488 /* TabController.swift in Sources */,
 				A17BD23622803D840011C488 /* HomeViewModel.swift in Sources */,
 				A17BD24422803ED30011C488 /* HomeCoordinator.swift in Sources */,
 				A17BD1F5227FE80A0011C488 /* AppDelegate.swift in Sources */,

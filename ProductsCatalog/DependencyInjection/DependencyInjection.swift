@@ -20,8 +20,11 @@ extension DependencyInjection {
             return UIWindow(frame: UIScreen.main.bounds)
         }
         
-        container.register(UITabBarController.self) { _ in
-            let tabController = UITabBarController()
+        container.register(TabController.self) { resolver in
+            let tabController = TabController()
+            let homeViewController = resolver.resolve(HomeViewController.self)!
+            let cartViewController = resolver.resolve(CartViewController.self)!
+            tabController.setTabs(tabs: [homeViewController, cartViewController])
             return tabController
         }
         
@@ -43,7 +46,7 @@ extension DependencyInjection {
         container.register(ApplicationCoordinator.self) { resolver in
             return ApplicationCoordinator(window: resolver.resolve(UIWindow.self)!,
                                           navigationCoordination: resolver.resolve(NavigationCoordination.self)!,
-                                          cartCoordinator: resolver.resolve(CartCoordinator.self)!)
+                                          tabController: resolver.resolve(TabController.self)!)
         }
         
         container.register(HomeCoordinator.self) { resolver in
@@ -79,6 +82,7 @@ extension DependencyInjection {
         container.register(HomeViewController.self) { resolver in
             let presenter = resolver.resolve(HomePresenter.self)!
             let viewController = HomeViewController(presenter: presenter)
+            viewController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
             viewController.presenter.view = viewController
             return viewController
         }
@@ -86,6 +90,7 @@ extension DependencyInjection {
         container.register(CartViewController.self) { resolver in
             let presenter = resolver.resolve(CartPresenter.self)!
             let viewController = CartViewController(presenter: presenter)
+            viewController.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 1)
             viewController.presenter.view = viewController
             return viewController
         }
