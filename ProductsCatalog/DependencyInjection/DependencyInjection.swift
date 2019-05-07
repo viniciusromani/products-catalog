@@ -40,7 +40,7 @@ extension DependencyInjection {
         
         container.register(NavigationCoordination.self) { resolver in
             return NavigationCoordination(navigationController: resolver.resolve(UINavigationController.self)!)
-        }
+        }.inObjectScope(.transient)
         
         container.register(ApplicationCoordinator.self) { resolver in
             return ApplicationCoordinator(window: resolver.resolve(UIWindow.self)!,
