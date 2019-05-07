@@ -21,5 +21,6 @@ class TabController: UITabBarController {
         self.viewControllers = [self.homeCoordinator.navigationCoordination.navigationController,
                                 self.cartCoordinator.navigationCoordination.navigationController]
         self.homeCoordinator.start()
+        self.cartCoordinator.start()
     }
 }

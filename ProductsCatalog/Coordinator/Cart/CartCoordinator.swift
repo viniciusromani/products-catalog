@@ -12,7 +12,7 @@ class CartCoordinator: Coordinator {
     }
     
     func start() {
-        self.navigationCoordination.navigationController.viewControllers = [self.cartViewController]
-//        self.navigationCoordination.setStack([self.cartViewController])
+        self.navigationCoordination.setStack([self.cartViewController])
+        self.cartViewController.title = R.string.localizable.cartNavigationTitle()
     }
 }

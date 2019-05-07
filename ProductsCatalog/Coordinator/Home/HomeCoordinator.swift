@@ -12,7 +12,7 @@ class HomeCoordinator: Coordinator {
     }
     
     func start() {
-        self.navigationCoordination.navigationController.viewControllers = [self.homeViewController]
-//        self.navigationCoordination.setStack([self.homeViewController])
+        self.navigationCoordination.setStack([self.homeViewController])
+        self.homeViewController.title = R.string.localizable.homeNavigationTitle()
     }
 }

@@ -36,7 +36,7 @@ extension DependencyInjection {
             let titleAttributes = [NSAttributedString.Key.foregroundColor: R.color.actionColor()]
             navigationController.navigationBar.titleTextAttributes = titleAttributes as [NSAttributedString.Key : Any]
             return navigationController
-        }
+        }.inObjectScope(.transient)
         
         container.register(NavigationCoordination.self) { resolver in
             return NavigationCoordination(navigationController: resolver.resolve(UINavigationController.self)!)

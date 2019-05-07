@@ -57,18 +57,19 @@ class ProductCollectionViewCell: UICollectionViewCell {
     private func addConstraintsToSubviews() {
         image.snp.makeConstraints { make in
             make.top.equalToSuperview()
-            make.height.equalTo(200)
+            make.height.equalTo(190)
             make.centerX.equalToSuperview()
         }
         
         name.snp.makeConstraints { make in
             make.top.equalTo(self.image.snp.bottom).offset(10)
             make.left.right.equalToSuperview().inset(20)
+            make.height.equalTo(35)
         }
         
         regularPrice.snp.makeConstraints { make in
             make.top.equalTo(self.name.snp.bottom).offset(4)
-            make.left.right.equalTo(self.name)
+            make.left.right.equalToSuperview().inset(20)
             make.bottom.equalToSuperview().inset(10)
         }
     }
@@ -100,6 +101,8 @@ extension ProductCollectionViewCell {
         let attributedString = NSAttributedString(string: viewModel.regularPrice,
                                                   attributes: attributes)
         promotional.attributedText = attributedString
+        
+        self.regularPrice.text = viewModel.promotionalPrice
         
         guard self.discountContainer != nil else {
             return
