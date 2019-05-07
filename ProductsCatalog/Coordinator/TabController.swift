@@ -1,7 +1,13 @@
 import UIKit
 
 class TabController: UITabBarController {
-    init() {
+    private let homeCoordinator: HomeCoordinator
+    private let cartCoordinator: CartCoordinator
+    
+    init(homeCoordinator: HomeCoordinator,
+         cartCoordinator: CartCoordinator) {
+        self.homeCoordinator = homeCoordinator
+        self.cartCoordinator = cartCoordinator
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -9,7 +15,10 @@ class TabController: UITabBarController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setTabs(tabs: [UIViewController]) {
-        self.viewControllers = tabs
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.viewControllers = [self.homeCoordinator.navigationCoordination.navigationController,
+                                self.cartCoordinator.navigationCoordination.navigationController]
     }
 }

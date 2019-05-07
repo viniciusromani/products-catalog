@@ -1,7 +1,6 @@
 import UIKit
 
 class NavigationCoordination {
-    
     private let animate = true
     let navigationController: UINavigationController
     

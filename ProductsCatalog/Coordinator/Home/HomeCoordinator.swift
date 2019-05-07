@@ -2,8 +2,7 @@ import Foundation
 import UIKit
 
 class HomeCoordinator: Coordinator {
-    
-    private let navigationCoordination: NavigationCoordination
+    let navigationCoordination: NavigationCoordination
     private let homeViewController: HomeViewController
     
     init(navigationCoordination: NavigationCoordination,
@@ -13,6 +12,7 @@ class HomeCoordinator: Coordinator {
     }
     
     func start() {
-        self.navigationCoordination.setStack([self.homeViewController])
+        self.navigationCoordination.navigationController.viewControllers = [self.homeViewController]
+//        self.navigationCoordination.setStack([self.homeViewController])
     }
 }

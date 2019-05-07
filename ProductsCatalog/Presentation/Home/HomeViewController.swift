@@ -25,8 +25,8 @@ class HomeViewController: UIViewController {
         self.view = self.homeView
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         self.homeView.displayLoading()
         self.presenter.retrieveProducts()

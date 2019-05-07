@@ -24,18 +24,17 @@ extension DependencyInjection {
         }
         
         container.register(TabController.self) { resolver in
-            let tabController = TabController()
-            let homeViewController = resolver.resolve(HomeViewController.self)!
-            let cartViewController = resolver.resolve(CartViewController.self)!
-            tabController.setTabs(tabs: [homeViewController, cartViewController])
+            let tabController = TabController(homeCoordinator: resolver.resolve(HomeCoordinator.self)!,
+                                              cartCoordinator: resolver.resolve(CartCoordinator.self)!)
+            tabController.tabBar.tintColor = R.color.actionColor()
             return tabController
         }
         
         container.register(UINavigationController.self) { _ in
             let navigationController = UINavigationController()
             navigationController.navigationBar.barStyle = .default
-            let titleAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
-            navigationController.navigationBar.titleTextAttributes = titleAttributes
+            let titleAttributes = [NSAttributedString.Key.foregroundColor: R.color.actionColor()]
+            navigationController.navigationBar.titleTextAttributes = titleAttributes as [NSAttributedString.Key : Any]
             return navigationController
         }
         
@@ -45,7 +44,6 @@ extension DependencyInjection {
         
         container.register(ApplicationCoordinator.self) { resolver in
             return ApplicationCoordinator(window: resolver.resolve(UIWindow.self)!,
-                                          navigationCoordination: resolver.resolve(NavigationCoordination.self)!,
                                           tabController: resolver.resolve(TabController.self)!)
         }
         
@@ -98,7 +96,9 @@ extension DependencyInjection {
         container.register(HomeViewController.self) { resolver in
             let presenter = resolver.resolve(HomePresenter.self)!
             let viewController = HomeViewController(presenter: presenter)
-            viewController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
+            viewController.tabBarItem = UITabBarItem(title: nil,
+                                                     image: R.image.icSearch(),
+                                                     selectedImage: R.image.icSearchSelected())
             viewController.presenter.view = viewController
             return viewController
         }
@@ -106,7 +106,9 @@ extension DependencyInjection {
         container.register(CartViewController.self) { resolver in
             let presenter = resolver.resolve(CartPresenter.self)!
             let viewController = CartViewController(presenter: presenter)
-            viewController.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 1)
+            viewController.tabBarItem = UITabBarItem(title: nil,
+                                                     image: R.image.icCart(),
+                                                     selectedImage: R.image.icCartSelected())
             viewController.presenter.view = viewController
             return viewController
         }

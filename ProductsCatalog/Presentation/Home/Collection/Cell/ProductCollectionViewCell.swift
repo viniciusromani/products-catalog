@@ -101,6 +101,9 @@ extension ProductCollectionViewCell {
                                                   attributes: attributes)
         promotional.attributedText = attributedString
         
+        guard self.discountContainer != nil else {
+            return
+        }
         self.regularPrice.removeFromSuperview()
         self.discountContainer?.addSubviews([discount, promotional])
         self.addSubviews([self.regularPrice, self.discountContainer!])
