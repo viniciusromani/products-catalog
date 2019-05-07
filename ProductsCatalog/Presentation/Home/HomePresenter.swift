@@ -14,7 +14,8 @@ class HomePresenter {
     
     func retrieveProducts() {
         self.retrieveProductsUseCase.execute().subscribe(onNext: { models in
-            self.view?.productsFetched()
+            let viewModel = ProductViewModel.asArray(mapping: models)
+            self.view?.productsFetched(with: viewModel)
         }, onError: { error in
             self.view?.errorGettingProducts()
         }).disposed(by: self.disposeBag)

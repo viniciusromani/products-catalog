@@ -10,6 +10,7 @@ target 'ProductsCatalog' do
   pod 'Swinject'
   pod 'SnapKit'
   pod 'R.swift'
+  pod 'SDWebImage', '~> 5.0'
 
   target 'ProductsCatalogTests' do
     inherit! :search_paths

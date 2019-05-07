@@ -1,8 +1,10 @@
 import UIKit
 import SnapKit
 
-class HomeView: UIView {
-    private let label = UILabel()
+class HomeView: UIView, LoadableView {
+    let collection = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    
+    var activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
     
     init() {
         super.init(frame: .zero)
@@ -20,20 +22,31 @@ class HomeView: UIView {
     }
     
     private func addSubviews() {
-        self.addSubview(self.label)
+        self.addSubview(self.collection)
     }
     
     private func formatViews() {
-        self.backgroundColor = .white
+        self.backgroundColor = R.color.backgroundColor()
         
-        self.label.text = "Home"
-        self.label.textColor = .black
-        self.label.font = .systemFont(ofSize: 18)
+        self.activityIndicator.color = .gray
+        
+        self.collection.backgroundColor = R.color.backgroundColor()
+        self.collection.contentInset = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
     }
     
     private func addConstraintsToSubviews() {
-        label.snp.makeConstraints { make in
-            make.center.equalToSuperview()
+        collection.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
+    }
+}
+
+extension HomeView {
+    func displayLoading() {
+        self.showLoading(at: self)
+    }
+    
+    func removeLoading() {
+        self.hideLoading()
     }
 }
