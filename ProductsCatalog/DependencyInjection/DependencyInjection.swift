@@ -34,11 +34,8 @@ extension DependencyInjection {
         container.register(UINavigationController.self) { _ in
             let navigationController = UINavigationController()
             navigationController.navigationBar.barStyle = .default
-            if #available(iOS 11.0, *) {
-                navigationController.navigationBar.prefersLargeTitles = true
-                let titleAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
-                navigationController.navigationBar.largeTitleTextAttributes = titleAttributes
-            }
+            let titleAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+            navigationController.navigationBar.titleTextAttributes = titleAttributes
             return navigationController
         }
         
