@@ -48,7 +48,7 @@ extension ProductsCollectionViewDataSource: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellHeight = CGFloat(250)
+        let cellHeight = CGFloat(280)
         let cellSpacing = (collectionViewLayout as? UICollectionViewFlowLayout)?.minimumInteritemSpacing ?? 10
         let halfOfWidth = (collectionView.bounds.width - (cellSpacing * 2)) / 2
         let size = CGSize(width: halfOfWidth - (cellSpacing * 2), height: cellHeight)

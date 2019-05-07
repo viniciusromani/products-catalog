@@ -23,6 +23,7 @@ struct ProductEntity {
     let isOnSale: Bool
     let regularPrice: String
     let promotionalPrice: String?
+    let discountPercentage: String?
     let sizes: [SizeEntity]
 }
 extension ProductEntity: Codable {
@@ -32,6 +33,7 @@ extension ProductEntity: Codable {
         case isOnSale = "on_sale"
         case regularPrice = "regular_price"
         case promotionalPrice = "actual_price"
+        case discountPercentage = "discount_percentage"
         case sizes
     }
     
@@ -42,6 +44,7 @@ extension ProductEntity: Codable {
         self.isOnSale = try container.decode(Bool.self, forKey: .isOnSale)
         self.regularPrice = try container.decode(String.self, forKey: .regularPrice)
         self.promotionalPrice = try container.decodeIfPresent(String.self, forKey: .promotionalPrice)
+        self.discountPercentage = try container.decodeIfPresent(String.self, forKey: .discountPercentage)
         self.sizes = try container.decode([SizeEntity].self, forKey: .sizes)
     }
     

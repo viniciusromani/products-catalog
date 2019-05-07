@@ -6,6 +6,7 @@ struct ProductModel {
     let isOnSale: Bool
     let regularPrice: String
     let promotionalPrice: String?
+    let discountPercentage: String?
     let sizes: [SizeModel]
 }
 
@@ -16,6 +17,7 @@ extension ProductModel {
         self.isOnSale = entity.isOnSale
         self.regularPrice = entity.regularPrice
         self.promotionalPrice = entity.promotionalPrice
+        self.discountPercentage = entity.discountPercentage
         self.sizes = SizeModel.asArray(mapping: entity.sizes)
     }
     
