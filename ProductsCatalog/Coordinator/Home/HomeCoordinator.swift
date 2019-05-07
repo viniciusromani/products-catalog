@@ -13,6 +13,6 @@ class HomeCoordinator: Coordinator {
     
     func start() {
         self.navigationCoordination.setStack([self.homeViewController])
-        self.homeViewController.title = R.string.localizable.homeNavigationTitle()
+        self.homeViewController.navigationItem.title = R.string.localizable.homeNavigationTitle()
     }
 }

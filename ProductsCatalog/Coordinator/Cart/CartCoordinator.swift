@@ -13,6 +13,6 @@ class CartCoordinator: Coordinator {
     
     func start() {
         self.navigationCoordination.setStack([self.cartViewController])
-        self.cartViewController.title = R.string.localizable.cartNavigationTitle()
+        self.cartViewController.navigationItem.title = R.string.localizable.cartNavigationTitle()
     }
 }
