@@ -5,6 +5,7 @@ class CartProductTableViewCell: UITableViewCell, LoadableView {
     private let infoContainer = UIView()
     private let name = UILabel()
     private let regularPrice = UILabel()
+    private var salePrice: UILabel?
     let quantity = UIButton(type: .system)
     let delete = UIButton(type: .system)
     
@@ -18,6 +19,12 @@ class CartProductTableViewCell: UITableViewCell, LoadableView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.buildViews()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        self.salePrice?.removeFromSuperview()
     }
     
     private func buildViews() {
@@ -114,5 +121,33 @@ extension CartProductTableViewCell {
         self.name.text = viewModel.name
         self.regularPrice.text = viewModel.regularPrice
         self.quantity.setTitle("x1", for: .normal)
+        if viewModel.isOnSale {
+            self.setSalePrice(with: viewModel)
+        }
+    }
+    
+    private func setSalePrice(with viewModel: CartProductViewModel) {
+        self.salePrice = UILabel()
+        self.salePrice?.textAlignment = .left
+        self.salePrice?.textColor = .gray
+        self.salePrice?.font = .systemFont(ofSize: 14)
+        let attributes = [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue,
+                          NSAttributedString.Key.strikethroughColor: UIColor.gray] as [NSAttributedString.Key : Any]
+        let attributedString = NSAttributedString(string: viewModel.regularPrice,
+                                                  attributes: attributes)
+        self.salePrice?.attributedText = attributedString
+        
+        self.regularPrice.text = viewModel.promotionalPrice
+        
+        guard self.salePrice != nil else {
+            return
+        }
+        self.infoContainer.addSubview(self.salePrice!)
+        
+        self.salePrice?.snp.makeConstraints { make in
+            make.top.equalTo(self.regularPrice)
+            make.left.equalTo(self.regularPrice.snp.right).offset(8)
+            make.bottom.equalToSuperview()
+        }
     }
 }

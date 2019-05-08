@@ -31,7 +31,7 @@
 		A10E8CF82282A55B009FC008 /* EmptableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E8CF72282A55B009FC008 /* EmptableView.swift */; };
 		A10E8CFA2282A63C009FC008 /* HomeEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E8CF92282A63C009FC008 /* HomeEmptyStateView.swift */; };
 		A10E8CFC2282AB5F009FC008 /* CartEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E8CFB2282AB5F009FC008 /* CartEmptyStateView.swift */; };
-		A10E8CFE2282B100009FC008 /* CalculateCartTotalUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E8CFD2282B100009FC008 /* CalculateCartTotalUseCase.swift */; };
+		A10E8CFE2282B100009FC008 /* CalculateTotalCartPriceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E8CFD2282B100009FC008 /* CalculateTotalCartPriceUseCase.swift */; };
 		A10F68C122810416000BFFFC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A10F68C322810416000BFFFC /* Localizable.strings */; };
 		A10F68C922810714000BFFFC /* ProductsCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F68C822810714000BFFFC /* ProductsCollectionViewDataSource.swift */; };
 		A10F68CD2281087F000BFFFC /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F68CC2281087F000BFFFC /* UICollectionView+Extension.swift */; };
@@ -39,6 +39,7 @@
 		A10F68D1228109D6000BFFFC /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F68D0228109D6000BFFFC /* UIImageView+Extension.swift */; };
 		A10F68D322810BA6000BFFFC /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F68D222810BA6000BFFFC /* UIView+Extension.swift */; };
 		A10F68D622811CC4000BFFFC /* LoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F68D522811CC3000BFFFC /* LoadableView.swift */; };
+		A12DA0632283254C001499CC /* CachedNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12DA0622283254C001499CC /* CachedNumberFormatter.swift */; };
 		A17BD1F5227FE80A0011C488 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17BD1F4227FE80A0011C488 /* AppDelegate.swift */; };
 		A17BD1FC227FE80B0011C488 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A17BD1FB227FE80B0011C488 /* Assets.xcassets */; };
 		A17BD1FF227FE80B0011C488 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17BD1FD227FE80B0011C488 /* LaunchScreen.storyboard */; };
@@ -106,7 +107,7 @@
 		A10E8CF72282A55B009FC008 /* EmptableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptableView.swift; sourceTree = "<group>"; };
 		A10E8CF92282A63C009FC008 /* HomeEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEmptyStateView.swift; sourceTree = "<group>"; };
 		A10E8CFB2282AB5F009FC008 /* CartEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartEmptyStateView.swift; sourceTree = "<group>"; };
-		A10E8CFD2282B100009FC008 /* CalculateCartTotalUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateCartTotalUseCase.swift; sourceTree = "<group>"; };
+		A10E8CFD2282B100009FC008 /* CalculateTotalCartPriceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateTotalCartPriceUseCase.swift; sourceTree = "<group>"; };
 		A10F68BE228103C9000BFFFC /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		A10F68C222810416000BFFFC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A10F68C42281041B000BFFFC /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -116,6 +117,7 @@
 		A10F68D0228109D6000BFFFC /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		A10F68D222810BA6000BFFFC /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		A10F68D522811CC3000BFFFC /* LoadableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadableView.swift; sourceTree = "<group>"; };
+		A12DA0622283254C001499CC /* CachedNumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedNumberFormatter.swift; sourceTree = "<group>"; };
 		A17BD1F1227FE80A0011C488 /* ProductsCatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProductsCatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A17BD1F4227FE80A0011C488 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A17BD1FB227FE80B0011C488 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -217,7 +219,7 @@
 				A10E8CDA2282639D009FC008 /* RemoveProductFromCartUseCase.swift */,
 				A10E8CDC2282670B009FC008 /* RetrieveCartProductsUseCase.swift */,
 				A10E8CE42282810C009FC008 /* RetrieveAvailableSizesUseCase.swift */,
-				A10E8CFD2282B100009FC008 /* CalculateCartTotalUseCase.swift */,
+				A10E8CFD2282B100009FC008 /* CalculateTotalCartPriceUseCase.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -337,6 +339,7 @@
 			children = (
 				A17BD216227FEA670011C488 /* R.generated.swift */,
 				A10F68C322810416000BFFFC /* Localizable.strings */,
+				A12DA0622283254C001499CC /* CachedNumberFormatter.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -768,9 +771,10 @@
 				A10E8CCE22825AE3009FC008 /* CartProcutEntity.swift in Sources */,
 				A10E8CE72282811E009FC008 /* UseCase.swift in Sources */,
 				A10E8CCA22825250009FC008 /* RemoteDatabaseDataSource.swift in Sources */,
-				A10E8CFE2282B100009FC008 /* CalculateCartTotalUseCase.swift in Sources */,
+				A10E8CFE2282B100009FC008 /* CalculateTotalCartPriceUseCase.swift in Sources */,
 				A17BD23622803D840011C488 /* HomeViewModel.swift in Sources */,
 				A17BD24422803ED30011C488 /* HomeCoordinator.swift in Sources */,
+				A12DA0632283254C001499CC /* CachedNumberFormatter.swift in Sources */,
 				A10E8CD222825E7C009FC008 /* FirebaseException.swift in Sources */,
 				A10E8CD422825EE0009FC008 /* GeneralException.swift in Sources */,
 				A10E8CFC2282AB5F009FC008 /* CartEmptyStateView.swift in Sources */,

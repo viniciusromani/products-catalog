@@ -6,6 +6,8 @@ protocol CartViewProtocol: class {
     
     func productHasBeenRemoved()
     func errorRemovingProduct()
+    
+    func setTotal(_ total: String)
 }
 
 class CartViewController: UIViewController {
@@ -25,9 +27,7 @@ class CartViewController: UIViewController {
     }
     
     override func loadView() {
-//        self.edgesForExtendedLayout = []
         self.cartView = CartView()
-        
         self.view = self.cartView
     }
     
@@ -35,6 +35,7 @@ class CartViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.cartView.displayLoading()
+        self.presenter.setProductsObservable()
         self.presenter.retrieveProducts()
     }
 }
@@ -58,6 +59,10 @@ extension CartViewController: CartViewProtocol {
     
     func errorRemovingProduct() {
         
+    }
+    
+    func setTotal(_ total: String) {
+        self.cartView.setTotal(total)
     }
 }
 

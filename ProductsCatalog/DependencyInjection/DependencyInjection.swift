@@ -112,6 +112,10 @@ extension DependencyInjection {
         container.register(RetrieveAvailableSizesUseCase.self) { resolver in
             return RetrieveAvailableSizesUseCase()
         }
+        
+        container.register(CalculateTotalCartPriceUseCase.self) { resolver in
+            return CalculateTotalCartPriceUseCase()
+        }
     }
     
     private static func injectPresenter(on container: Container) {
@@ -123,7 +127,8 @@ extension DependencyInjection {
         
         container.register(CartPresenter.self) { resolver in
             return CartPresenter(retrieveCartProductsUseCase: resolver.resolve(RetrieveCartProductsUseCase.self)!,
-                                 removeProductFromCartUseCase: resolver.resolve(RemoveProductFromCartUseCase.self)!)
+                                 removeProductFromCartUseCase: resolver.resolve(RemoveProductFromCartUseCase.self)!,
+                                 calculateTotalCartPriceUseCase: resolver.resolve(CalculateTotalCartPriceUseCase.self)!)
         }
     }
     

@@ -27,7 +27,26 @@ class CartTableViewDataSource: NSObject {
 }
 
 extension CartTableViewDataSource: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        guard let viewModel = self.viewModel else {
+            return .none
+        }
+        return viewModel.count > 0 ? .delete: .none
+    }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard let product = self.viewModel?[indexPath.row] else {
+            return
+        }
+        
+        self.indexPathToBeRemoved = indexPath
+        self.delegate.didClickOnDelete(for: product)
+        tableView.reloadRows(at: [indexPath], with: .fade)
+    }
+    
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
 }
 
 extension CartTableViewDataSource: UITableViewDataSource {
@@ -65,23 +84,6 @@ extension CartTableViewDataSource: UITableViewDataSource {
         let indexPath = IndexPath(row: sender.tag, section: 0)
         self.indexPathToBeRemoved = indexPath
         self.delegate.didClickOnDelete(for: viewModel)
-        tableView.reloadRows(at: [indexPath], with: .fade)
-    }
-    
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        guard let viewModel = self.viewModel else {
-            return .none
-        }
-        return viewModel.count > 0 ? .delete: .none
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        guard let product = self.viewModel?[indexPath.row] else {
-            return
-        }
-        
-        self.indexPathToBeRemoved = indexPath
-        self.delegate.didClickOnDelete(for: product)
         tableView.reloadRows(at: [indexPath], with: .fade)
     }
 }

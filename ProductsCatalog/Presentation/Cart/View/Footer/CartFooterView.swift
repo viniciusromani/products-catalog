@@ -27,10 +27,6 @@ class CartFooterView: UIView {
     }
     
     private func formatViews() {
-        self.layer.shadowRadius = 2
-        self.layer.shadowOpacity = 0.1
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOffset = CGSize(width: 0, height: 1)
         self.backgroundColor = .white
         
         self.container.axis = .horizontal

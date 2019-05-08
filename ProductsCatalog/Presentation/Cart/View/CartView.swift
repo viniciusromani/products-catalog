@@ -34,6 +34,11 @@ class CartView: UIView, LoadableView, EmptableView {
         
         self.tableView.backgroundColor = R.color.backgroundColor()
         self.tableView.tableFooterView = UIView()
+        
+        self.footer.layer.shadowRadius = 5
+        self.footer.layer.shadowOpacity = 0.1
+        self.footer.layer.shadowColor = UIColor.black.cgColor
+        self.footer.layer.shadowOffset = CGSize(width: 0, height: 1)
     }
     
     private func addConstraintsToSubviews() {
@@ -50,6 +55,10 @@ class CartView: UIView, LoadableView, EmptableView {
 }
 
 extension CartView {
+    func setTotal(_ total: String) {
+        self.footer.setTotal(total)
+    }
+    
     func displayLoading() {
         self.showLoading(at: self)
     }
