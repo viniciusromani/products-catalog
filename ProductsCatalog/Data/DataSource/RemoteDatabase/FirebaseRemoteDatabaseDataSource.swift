@@ -16,7 +16,8 @@ class FirebaseRemoteDatabaseDataSource: RemoteDatabaseDataSource {
                           _ productJSON: [String: Any]) -> Completable {
         let path = self.basicPath.appending("/\(id)")
         let completable = Completable.create { completable in
-            self.database.child(path).setValue(productJSON) { error, _ in
+            Database.database().reference().child(path).setValue(productJSON) { error, _ in
+//            self.database.child(path).setValue(productJSON) { error, _ in
                 guard error == nil else {
                     let exception = FirebaseException()
                     return completable(.error(exception))

@@ -23,4 +23,14 @@ extension CartProductModel {
     static func asArray(mapping entities: [CartProductEntity]) -> [CartProductModel] {
         return entities.compactMap { CartProductModel(mapping: $0) }
     }
+    
+    init(mapping viewModel: CartProductViewModel) {
+        self.id = viewModel.id
+        self.name = viewModel.name
+        self.imageURL = viewModel.imageURL
+        self.isOnSale = viewModel.isOnSale
+        self.regularPrice = viewModel.regularPrice
+        self.promotionalPrice = viewModel.promotionalPrice
+        self.selectedSize = viewModel.selectedSize
+    }
 }

@@ -1,6 +1,7 @@
 import Foundation
 
 struct ProductModel {
+    let id: String
     let imageURL: URL?
     let name: String
     let isOnSale: Bool
@@ -12,6 +13,7 @@ struct ProductModel {
 
 extension ProductModel {
     init(mapping entity: ProductEntity) {
+        self.id = entity.id
         self.imageURL = URL(string: entity.imageURL ?? "")
         self.name = entity.name
         self.isOnSale = entity.isOnSale

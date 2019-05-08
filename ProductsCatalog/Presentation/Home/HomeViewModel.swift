@@ -1,6 +1,7 @@
 import Foundation
 
 struct ProductViewModel {
+    let id: String
     let imageURL: URL?
     let name: String
     let isOnSale: Bool
@@ -12,6 +13,7 @@ struct ProductViewModel {
 
 extension ProductViewModel {
     init(mapping model: ProductModel) {
+        self.id = model.id
         self.imageURL = model.imageURL
         self.name = model.name
         self.isOnSale = model.isOnSale
@@ -52,18 +54,19 @@ struct CartProductViewModel {
 }
 
 extension CartProductViewModel {
-    init(mapping viewModel: CartProductViewModel) {
+    init(mapping viewModel: ProductViewModel, andSelectedSize selectedSize: String) {
         self.id = viewModel.id
         self.name = viewModel.name
         self.imageURL = viewModel.imageURL
         self.isOnSale = viewModel.isOnSale
         self.regularPrice = viewModel.regularPrice
         self.promotionalPrice = viewModel.promotionalPrice
-        self.selectedSize = viewModel.selectedSize
+        self.selectedSize = selectedSize
     }
 }
 
 struct AlertToCartViewModel {
     let title: String
     let message: String
+    let product: ProductViewModel
 }

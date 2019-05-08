@@ -47,7 +47,17 @@ extension HomeViewController: HomeViewProtocol {
     }
     
     func askUserAboutAddToCart(with viewModel: AlertToCartViewModel) {
-        print(viewModel)
+        let alert = UIAlertController(title: viewModel.title,
+                                      message: viewModel.message,
+                                      preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Adicionar", style: .default) { _ in
+            self.presenter.addProduct(viewModel.product)
+        }
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel) { _ in }
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

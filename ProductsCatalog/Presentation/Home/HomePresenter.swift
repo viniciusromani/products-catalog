@@ -28,9 +28,7 @@ class HomePresenter {
     }
     
     func userSelected(product: ProductViewModel) {
-        let sizesModel = SizeModel.asArray(mapping: product.sizes)
-        let availableSizesParams = RetrieveAvailableSizesUseCase.Params(sizes: sizesModel)
-        let availableSizes = self.retrieveAvailableSizesUseCase.execute(with: availableSizesParams)
+        let availableSizes = self.getAvailableSizes(for: product)
         
         guard let size = availableSizes.first else {
             // TODO: Throw no available sizes error
@@ -44,7 +42,35 @@ class HomePresenter {
                                                                   size.description,
                                                                   sizes)
         let viewModel = AlertToCartViewModel(title: R.string.localizable.homeAlertToCartTitle(),
-                                             message: message)
+                                             message: message,
+                                             product: product)
         self.view?.askUserAboutAddToCart(with: viewModel)
+    }
+    
+    private func getAvailableSizes(for product: ProductViewModel) -> [SizeModel] {
+        let sizesModel = SizeModel.asArray(mapping: product.sizes)
+        let availableSizesParams = RetrieveAvailableSizesUseCase.Params(sizes: sizesModel)
+        let availableSizes = self.retrieveAvailableSizesUseCase.execute(with: availableSizesParams)
+        return availableSizes
+    }
+    
+    func addProduct(_ product: ProductViewModel) {
+        let availableSizes = self.getAvailableSizes(for: product)
+        
+        guard let size = availableSizes.first else {
+            // TODO: Throw no available sizes error
+            return
+        }
+        
+        let cartProductViewModel = CartProductViewModel(mapping: product, andSelectedSize: size.description)
+        let cartProductModel = CartProductModel(mapping: cartProductViewModel)
+        let addParams = AddProductToCartUseCase.Params(product: cartProductModel)
+        self.addProductToCartUseCase.execute(with: addParams).subscribe(onCompleted: {
+            // success
+            print("added")
+        }, onError: { error in
+            // error
+            print("not added")
+        }).disposed(by: self.disposeBag)
     }
 }
