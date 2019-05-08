@@ -43,7 +43,8 @@ class CartView: UIView, LoadableView, EmptableView {
         
         footer.snp.makeConstraints { make in
             make.top.equalTo(self.tableView.snp.bottom)
-            make.left.right.bottom.equalToSuperview()
+            make.left.right.equalToSuperview()
+            make.bottom.equalToSuperview().inset(49)
         }
     }
 }

@@ -31,6 +31,7 @@
 		A10E8CF82282A55B009FC008 /* EmptableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E8CF72282A55B009FC008 /* EmptableView.swift */; };
 		A10E8CFA2282A63C009FC008 /* HomeEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E8CF92282A63C009FC008 /* HomeEmptyStateView.swift */; };
 		A10E8CFC2282AB5F009FC008 /* CartEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E8CFB2282AB5F009FC008 /* CartEmptyStateView.swift */; };
+		A10E8CFE2282B100009FC008 /* CalculateCartTotalUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E8CFD2282B100009FC008 /* CalculateCartTotalUseCase.swift */; };
 		A10F68C122810416000BFFFC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A10F68C322810416000BFFFC /* Localizable.strings */; };
 		A10F68C922810714000BFFFC /* ProductsCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F68C822810714000BFFFC /* ProductsCollectionViewDataSource.swift */; };
 		A10F68CD2281087F000BFFFC /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F68CC2281087F000BFFFC /* UICollectionView+Extension.swift */; };
@@ -105,6 +106,7 @@
 		A10E8CF72282A55B009FC008 /* EmptableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptableView.swift; sourceTree = "<group>"; };
 		A10E8CF92282A63C009FC008 /* HomeEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEmptyStateView.swift; sourceTree = "<group>"; };
 		A10E8CFB2282AB5F009FC008 /* CartEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartEmptyStateView.swift; sourceTree = "<group>"; };
+		A10E8CFD2282B100009FC008 /* CalculateCartTotalUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateCartTotalUseCase.swift; sourceTree = "<group>"; };
 		A10F68BE228103C9000BFFFC /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		A10F68C222810416000BFFFC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A10F68C42281041B000BFFFC /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				A10E8CDA2282639D009FC008 /* RemoveProductFromCartUseCase.swift */,
 				A10E8CDC2282670B009FC008 /* RetrieveCartProductsUseCase.swift */,
 				A10E8CE42282810C009FC008 /* RetrieveAvailableSizesUseCase.swift */,
+				A10E8CFD2282B100009FC008 /* CalculateCartTotalUseCase.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -765,6 +768,7 @@
 				A10E8CCE22825AE3009FC008 /* CartProcutEntity.swift in Sources */,
 				A10E8CE72282811E009FC008 /* UseCase.swift in Sources */,
 				A10E8CCA22825250009FC008 /* RemoteDatabaseDataSource.swift in Sources */,
+				A10E8CFE2282B100009FC008 /* CalculateCartTotalUseCase.swift in Sources */,
 				A17BD23622803D840011C488 /* HomeViewModel.swift in Sources */,
 				A17BD24422803ED30011C488 /* HomeCoordinator.swift in Sources */,
 				A10E8CD222825E7C009FC008 /* FirebaseException.swift in Sources */,

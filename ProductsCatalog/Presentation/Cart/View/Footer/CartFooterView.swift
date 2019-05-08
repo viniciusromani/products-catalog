@@ -51,8 +51,15 @@ class CartFooterView: UIView {
     
     private func addConstraintsToSubviews() {
         container.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview().inset(25)
-            make.left.right.equalToSuperview().inset(16)
+            make.top.bottom.equalToSuperview().inset(16)
+            make.left.right.equalToSuperview().inset(10)
+            make.height.equalTo(45)
         }
+    }
+}
+
+extension CartFooterView {
+    func setTotal(_ total: String) {
+        self.total.text = total
     }
 }

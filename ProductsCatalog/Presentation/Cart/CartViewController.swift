@@ -25,6 +25,7 @@ class CartViewController: UIViewController {
     }
     
     override func loadView() {
+//        self.edgesForExtendedLayout = []
         self.cartView = CartView()
         
         self.view = self.cartView
