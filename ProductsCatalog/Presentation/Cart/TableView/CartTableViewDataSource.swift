@@ -1,11 +1,20 @@
 import UIKit
 
+protocol CartTableViewDataSourceDelegate {
+    func didClickOnDelete(for product: CartProductViewModel)
+}
+
 class CartTableViewDataSource: NSObject {
     private let tableView: UITableView
+    private let delegate: CartTableViewDataSourceDelegate
     private var viewModel: [CartProductViewModel]?
     
-    init(tableView: UITableView) {
+    private var indexPathToBeRemoved: IndexPath?
+    
+    init(tableView: UITableView,
+         delegate: CartTableViewDataSourceDelegate) {
         self.tableView = tableView
+        self.delegate = delegate
         
         super.init()
         
@@ -35,8 +44,45 @@ extension CartTableViewDataSource: UITableViewDataSource {
         }
         
         let cell: CartProductTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+        
+        if let toRemove = self.indexPathToBeRemoved, toRemove == indexPath {
+            cell.displayLoading()
+            return cell
+        }
+        
+        cell.removeLoading()
+        cell.delete.tag = indexPath.row
+        cell.delete.addTarget(self, action: #selector(deleteTapped(_:)), for: .touchUpInside)
         cell.set(with: viewModel[indexPath.row])
         return cell
+    }
+    
+    @objc private func deleteTapped(_ sender: UIButton) {
+        guard let viewModel = self.viewModel?[sender.tag] else {
+            return
+        }
+        
+        let indexPath = IndexPath(row: sender.tag, section: 0)
+        self.indexPathToBeRemoved = indexPath
+        self.delegate.didClickOnDelete(for: viewModel)
+        tableView.reloadRows(at: [indexPath], with: .fade)
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        guard let viewModel = self.viewModel else {
+            return .none
+        }
+        return viewModel.count > 0 ? .delete: .none
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard let product = self.viewModel?[indexPath.row] else {
+            return
+        }
+        
+        self.indexPathToBeRemoved = indexPath
+        self.delegate.didClickOnDelete(for: product)
+        tableView.reloadRows(at: [indexPath], with: .fade)
     }
 }
 
@@ -44,5 +90,19 @@ extension CartTableViewDataSource {
     func setProducts(with viewModel: [CartProductViewModel]) {
         self.viewModel = viewModel
         self.tableView.reloadAnimated()
+    }
+    
+    func removeProduct() {
+        guard let indexPath = self.indexPathToBeRemoved else {
+            return
+        }
+        
+        self.viewModel?.remove(at: indexPath.row)
+        self.indexPathToBeRemoved = nil
+        
+        let isViewModelEmpty = self.viewModel?.count ?? 0 > 0
+        isViewModelEmpty ?
+            self.tableView.reloadAnimated():
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
     }
 }

@@ -1,12 +1,14 @@
 import UIKit
 
-class CartProductTableViewCell: UITableViewCell {
+class CartProductTableViewCell: UITableViewCell, LoadableView {
     private let productImage = UIImageView()
     private let infoContainer = UIView()
     private let name = UILabel()
     private let regularPrice = UILabel()
     let quantity = UIButton(type: .system)
     let delete = UIButton(type: .system)
+    
+    var activityIndicator = UIActivityIndicatorView.init(style: .gray)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -98,6 +100,15 @@ class CartProductTableViewCell: UITableViewCell {
 }
 
 extension CartProductTableViewCell {
+    func displayLoading() {
+        self.layoutIfNeeded()
+        self.showLoading(at: self)
+    }
+    
+    func removeLoading() {
+        self.hideLoading()
+    }
+    
     func set(with viewModel: CartProductViewModel) {
         self.productImage.setImage(with: viewModel.imageURL)
         self.name.text = viewModel.name

@@ -122,7 +122,8 @@ extension DependencyInjection {
         }
         
         container.register(CartPresenter.self) { resolver in
-            return CartPresenter(retrieveCartProductsUseCase: resolver.resolve(RetrieveCartProductsUseCase.self)!)
+            return CartPresenter(retrieveCartProductsUseCase: resolver.resolve(RetrieveCartProductsUseCase.self)!,
+                                 removeProductFromCartUseCase: resolver.resolve(RemoveProductFromCartUseCase.self)!)
         }
     }
     

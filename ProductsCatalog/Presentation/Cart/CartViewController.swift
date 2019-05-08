@@ -3,13 +3,17 @@ import UIKit
 protocol CartViewProtocol: class {
     func cartProductsFetched(with viewModel: [CartProductViewModel])
     func errorGettingProducts()
+    
+    func productHasBeenRemoved()
+    func errorRemovingProduct()
 }
 
 class CartViewController: UIViewController {
     
     var cartView: CartView!
     var presenter: CartPresenter
-    lazy var dataSource = CartTableViewDataSource(tableView: self.cartView.tableView)
+    lazy var dataSource = CartTableViewDataSource(tableView: self.cartView.tableView,
+                                                  delegate: self)
     
     init(presenter: CartPresenter) {
         self.presenter = presenter
@@ -42,5 +46,19 @@ extension CartViewController: CartViewProtocol {
     
     func errorGettingProducts() {
         
+    }
+    
+    func productHasBeenRemoved() {
+        self.dataSource.removeProduct()
+    }
+    
+    func errorRemovingProduct() {
+        
+    }
+}
+
+extension CartViewController: CartTableViewDataSourceDelegate {
+    func didClickOnDelete(for product: CartProductViewModel) {
+        self.presenter.removeProduct(product)
     }
 }
