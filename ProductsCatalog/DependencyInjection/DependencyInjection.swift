@@ -121,8 +121,8 @@ extension DependencyInjection {
                                  addProductToCartUseCase: resolver.resolve(AddProductToCartUseCase.self)!)
         }
         
-        container.register(CartPresenter.self) { _ in
-            return CartPresenter()
+        container.register(CartPresenter.self) { resolver in
+            return CartPresenter(retrieveCartProductsUseCase: resolver.resolve(RetrieveCartProductsUseCase.self)!)
         }
     }
     

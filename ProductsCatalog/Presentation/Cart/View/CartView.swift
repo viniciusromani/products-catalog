@@ -1,7 +1,10 @@
 import UIKit
 
-class CartView: UIView {
-    private let label = UILabel()
+class CartView: UIView, LoadableView {
+    let tableView = UITableView()
+    private let footer = CartFooterView()
+    
+    var activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
     
     init() {
         super.init(frame: .zero)
@@ -19,20 +22,34 @@ class CartView: UIView {
     }
     
     private func addSubviews() {
-        self.addSubview(self.label)
+        self.addSubviews([self.tableView,
+                          self.footer])
     }
     
     private func formatViews() {
-        self.backgroundColor = .white
+        self.backgroundColor = R.color.backgroundColor()
         
-        self.label.text = "Cart"
-        self.label.textColor = .black
-        self.label.font = .systemFont(ofSize: 18)
+        self.activityIndicator.color = .gray
     }
     
     private func addConstraintsToSubviews() {
-        label.snp.makeConstraints { make in
-            make.center.equalToSuperview()
+        tableView.snp.makeConstraints { make in
+            make.top.left.right.equalToSuperview()
         }
+        
+        footer.snp.makeConstraints { make in
+            make.top.equalTo(self.tableView.snp.bottom)
+            make.left.right.bottom.equalToSuperview()
+        }
+    }
+}
+
+extension CartView {
+    func displayLoading() {
+        self.showLoading(at: self.tableView)
+    }
+    
+    func removeLoading() {
+        self.hideLoading()
     }
 }

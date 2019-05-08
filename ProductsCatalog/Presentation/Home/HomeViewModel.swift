@@ -43,28 +43,6 @@ extension SizeViewModel {
     }
 }
 
-struct CartProductViewModel {
-    let id: String
-    let imageURL: URL?
-    let name: String
-    let isOnSale: Bool
-    let regularPrice: String
-    let promotionalPrice: String?
-    let selectedSize: String
-}
-
-extension CartProductViewModel {
-    init(mapping viewModel: ProductViewModel, andSelectedSize selectedSize: String) {
-        self.id = viewModel.id
-        self.name = viewModel.name
-        self.imageURL = viewModel.imageURL
-        self.isOnSale = viewModel.isOnSale
-        self.regularPrice = viewModel.regularPrice
-        self.promotionalPrice = viewModel.promotionalPrice
-        self.selectedSize = selectedSize
-    }
-}
-
 struct AlertToCartViewModel {
     let title: String
     let message: String

@@ -6,3 +6,7 @@
 
 // Cart
 "cart-navigationTitle" = "Carrinho";
+"cart-buy" = "Comprar";
+
+// General
+"general-delete" = "Deletar";

@@ -1,13 +1,15 @@
 import UIKit
 
 protocol CartViewProtocol: class {
-    
+    func cartProductsFetched(with viewModel: [CartProductViewModel])
+    func errorGettingProducts()
 }
 
 class CartViewController: UIViewController {
     
     var cartView: CartView!
     var presenter: CartPresenter
+    lazy var dataSource = CartTableViewDataSource(tableView: self.cartView.tableView)
     
     init(presenter: CartPresenter) {
         self.presenter = presenter
@@ -23,8 +25,20 @@ class CartViewController: UIViewController {
         
         self.view = self.cartView
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.presenter.retrieveProducts()
+    }
 }
 
 extension CartViewController: CartViewProtocol {
+    func cartProductsFetched(with viewModel: [CartProductViewModel]) {
+        self.dataSource.setProducts(with: viewModel)
+    }
     
+    func errorGettingProducts() {
+        
+    }
 }

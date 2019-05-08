@@ -18,6 +18,6 @@ struct RemoteDatabaseRepository {
     }
     
     func retrieveCartProducts() -> Single<[CartProductEntity]> {
-        return self.retrieveCartProducts()
+        return self.dataSource.retrieveCartProducts()
     }
 }
