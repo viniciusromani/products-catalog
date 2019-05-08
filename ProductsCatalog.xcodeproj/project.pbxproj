@@ -20,9 +20,9 @@
 		A10E8CD92282609D009FC008 /* CartProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E8CD82282609D009FC008 /* CartProductModel.swift */; };
 		A10E8CDB2282639D009FC008 /* RemoveProductFromCartUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E8CDA2282639D009FC008 /* RemoveProductFromCartUseCase.swift */; };
 		A10E8CDD2282670B009FC008 /* RetrieveCartProductsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E8CDC2282670B009FC008 /* RetrieveCartProductsUseCase.swift */; };
-		A10E8CDF22826EF8009FC008 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A10E8CDE22826EF7009FC008 /* GoogleService-Info.plist */; };
 		A10E8CE52282810C009FC008 /* RetrieveAvailableSizesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E8CE42282810C009FC008 /* RetrieveAvailableSizesUseCase.swift */; };
 		A10E8CE72282811E009FC008 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E8CE62282811E009FC008 /* UseCase.swift */; };
+		A10E8CE922828846009FC008 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A10E8CE822828846009FC008 /* GoogleService-Info.plist */; };
 		A10F68C122810416000BFFFC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A10F68C322810416000BFFFC /* Localizable.strings */; };
 		A10F68C922810714000BFFFC /* ProductsCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F68C822810714000BFFFC /* ProductsCollectionViewDataSource.swift */; };
 		A10F68CD2281087F000BFFFC /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F68CC2281087F000BFFFC /* UICollectionView+Extension.swift */; };
@@ -86,9 +86,9 @@
 		A10E8CD82282609D009FC008 /* CartProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartProductModel.swift; sourceTree = "<group>"; };
 		A10E8CDA2282639D009FC008 /* RemoveProductFromCartUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveProductFromCartUseCase.swift; sourceTree = "<group>"; };
 		A10E8CDC2282670B009FC008 /* RetrieveCartProductsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetrieveCartProductsUseCase.swift; sourceTree = "<group>"; };
-		A10E8CDE22826EF7009FC008 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A10E8CE42282810C009FC008 /* RetrieveAvailableSizesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetrieveAvailableSizesUseCase.swift; sourceTree = "<group>"; };
 		A10E8CE62282811E009FC008 /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
+		A10E8CE822828846009FC008 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A10F68BE228103C9000BFFFC /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		A10F68C222810416000BFFFC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A10F68C42281041B000BFFFC /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -268,7 +268,7 @@
 				A17BD21822803A860011C488 /* DependencyInjection */,
 				A17BD214227FE9810011C488 /* Support */,
 				A17BD1F4227FE80A0011C488 /* AppDelegate.swift */,
-				A10E8CDE22826EF7009FC008 /* GoogleService-Info.plist */,
+				A10E8CE822828846009FC008 /* GoogleService-Info.plist */,
 				A17BD1FB227FE80B0011C488 /* Assets.xcassets */,
 				A17BD1FD227FE80B0011C488 /* LaunchScreen.storyboard */,
 				A17BD200227FE80B0011C488 /* Info.plist */,
@@ -579,7 +579,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A17BD1FF227FE80B0011C488 /* LaunchScreen.storyboard in Resources */,
-				A10E8CDF22826EF8009FC008 /* GoogleService-Info.plist in Resources */,
+				A10E8CE922828846009FC008 /* GoogleService-Info.plist in Resources */,
 				A10F68C122810416000BFFFC /* Localizable.strings in Resources */,
 				A17BD1FC227FE80B0011C488 /* Assets.xcassets in Resources */,
 			);
@@ -630,6 +630,7 @@
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -643,6 +644,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -658,7 +660,7 @@
 				"$TEMP_DIR/rswift-lastrun",
 			);
 			outputPaths = (
-				$SRCROOT/R.generated.swift,
+				"$SRCROOT/R.generated.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

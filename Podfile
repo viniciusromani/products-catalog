@@ -11,6 +11,7 @@ target 'ProductsCatalog' do
   pod 'SnapKit'
   pod 'R.swift'
   pod 'SDWebImage', '~> 5.0'
+  pod 'Firebase/Core'
   pod 'Firebase/Database'
 
   target 'ProductsCatalogTests' do
