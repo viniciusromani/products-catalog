@@ -10,3 +10,5 @@
 
 // General
 "general-delete" = "Deletar";
+"general-networkError" = "Ops! There was something wrong but double check your internet connection and try again :)";
+"general-tryAgain" = "Try again";

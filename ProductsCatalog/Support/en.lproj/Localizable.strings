@@ -10,3 +10,5 @@
 
 // General
 "general-delete" = "Delete";
+"general-networkError" = "Ops! Ocorreu um erro na sua chamada mas verifique sua internet e tente novamente :)";
+"general-tryAgain" = "Tente novamente";

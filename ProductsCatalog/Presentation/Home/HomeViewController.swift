@@ -25,6 +25,11 @@ class HomeViewController: UIViewController {
     
     override func loadView() {
         self.homeView = HomeView()
+        
+        (self.homeView.emptyStateView as! HomeEmptyStateView).action.addTarget(self,
+                                                                               action: #selector(reloadProducts),
+                                                                               for: .touchUpInside)
+        
         self.view = self.homeView
     }
     
@@ -34,16 +39,23 @@ class HomeViewController: UIViewController {
         self.homeView.displayLoading()
         self.presenter.retrieveProducts()
     }
+    
+    @objc private func reloadProducts() {
+        self.homeView.displayLoading()
+        self.presenter.retrieveProducts()
+    }
 }
 
 extension HomeViewController: HomeViewProtocol {
     func productsFetched(with viewModel: [ProductViewModel]) {
         self.homeView.removeLoading()
+        self.homeView.removeError()
         self.dataSource.setProducts(with: viewModel)
     }
     
     func errorGettingProducts() {
-        print("error")
+        self.homeView.removeLoading()
+        self.homeView.displayError()
     }
     
     func askUserAboutAddToCart(with viewModel: AlertToCartViewModel) {

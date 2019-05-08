@@ -1,10 +1,11 @@
 import UIKit
 import SnapKit
 
-class HomeView: UIView, LoadableView {
+class HomeView: UIView, LoadableView, EmptableView {
     let collection = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     var activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
+    var emptyStateView: UIView = HomeEmptyStateView()
     
     init() {
         super.init(frame: .zero)
@@ -48,5 +49,14 @@ extension HomeView {
     
     func removeLoading() {
         self.hideLoading()
+    }
+    
+    func displayError() {
+        (self.emptyStateView as! HomeEmptyStateView).setErrorState()
+        self.displayEmptyState(at: self)
+    }
+    
+    func removeError() {
+        self.hideEmptyState()
     }
 }
