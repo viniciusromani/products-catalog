@@ -8,6 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		8AEDA4E90AB10B431F1B6851 /* Pods_ProductsCatalog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C2456E5F14A24A91A1E31D /* Pods_ProductsCatalog.framework */; };
+		A10E8CC522825131009FC008 /* ApiProductsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E8CC422825131009FC008 /* ApiProductsDataSource.swift */; };
+		A10E8CC72282513D009FC008 /* ProductsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E8CC62282513D009FC008 /* ProductsDataSource.swift */; };
+		A10E8CCA22825250009FC008 /* RemoteDatabaseDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E8CC922825250009FC008 /* RemoteDatabaseDataSource.swift */; };
+		A10E8CCC22825925009FC008 /* FirebaseRemoteDatabaseDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E8CCB22825925009FC008 /* FirebaseRemoteDatabaseDataSource.swift */; };
+		A10E8CCE22825AE3009FC008 /* CartProcutEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E8CCD22825AE3009FC008 /* CartProcutEntity.swift */; };
+		A10E8CD022825B49009FC008 /* RemoteDatabaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E8CCF22825B49009FC008 /* RemoteDatabaseRepository.swift */; };
+		A10E8CD222825E7C009FC008 /* FirebaseException.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E8CD122825E7C009FC008 /* FirebaseException.swift */; };
+		A10E8CD422825EE0009FC008 /* GeneralException.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E8CD322825EE0009FC008 /* GeneralException.swift */; };
+		A10E8CD722826051009FC008 /* AddProductToCartUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E8CD622826051009FC008 /* AddProductToCartUseCase.swift */; };
+		A10E8CD92282609D009FC008 /* CartProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E8CD82282609D009FC008 /* CartProductModel.swift */; };
+		A10E8CDB2282639D009FC008 /* RemoveProductFromCartUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E8CDA2282639D009FC008 /* RemoveProductFromCartUseCase.swift */; };
+		A10E8CDD2282670B009FC008 /* RetrieveCartProductsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E8CDC2282670B009FC008 /* RetrieveCartProductsUseCase.swift */; };
+		A10E8CDF22826EF8009FC008 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A10E8CDE22826EF7009FC008 /* GoogleService-Info.plist */; };
 		A10F68C122810416000BFFFC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A10F68C322810416000BFFFC /* Localizable.strings */; };
 		A10F68C922810714000BFFFC /* ProductsCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F68C822810714000BFFFC /* ProductsCollectionViewDataSource.swift */; };
 		A10F68CD2281087F000BFFFC /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F68CC2281087F000BFFFC /* UICollectionView+Extension.swift */; };
@@ -36,9 +49,7 @@
 		A17BD24622803EDB0011C488 /* CartCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17BD24522803EDB0011C488 /* CartCoordinator.swift */; };
 		A17BD248228048FD0011C488 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17BD247228048FD0011C488 /* TabController.swift */; };
 		A17BD24B22804B010011C488 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17BD24A22804B010011C488 /* Endpoint.swift */; };
-		A17BD24D22804C2D0011C488 /* ProductsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17BD24C22804C2D0011C488 /* ProductsDataSource.swift */; };
 		A17BD24F22804C4B0011C488 /* ProductEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17BD24E22804C4B0011C488 /* ProductEntity.swift */; };
-		A17BD25122804C750011C488 /* ApiProductsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17BD25022804C750011C488 /* ApiProductsDataSource.swift */; };
 		A17BD25422804F8A0011C488 /* JSONParseException.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17BD25322804F8A0011C488 /* JSONParseException.swift */; };
 		A17BD256228052C20011C488 /* ProductsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17BD255228052C20011C488 /* ProductsRepository.swift */; };
 		A17BD258228053050011C488 /* ReactiveUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17BD257228053050011C488 /* ReactiveUseCase.swift */; };
@@ -61,6 +72,19 @@
 		37C2456E5F14A24A91A1E31D /* Pods_ProductsCatalog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProductsCatalog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68F03089F5EF6A827402E553 /* Pods_ProductsCatalogTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProductsCatalogTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		828035512A268AA0968899D6 /* Pods-ProductsCatalogTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProductsCatalogTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProductsCatalogTests/Pods-ProductsCatalogTests.release.xcconfig"; sourceTree = "<group>"; };
+		A10E8CC422825131009FC008 /* ApiProductsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiProductsDataSource.swift; sourceTree = "<group>"; };
+		A10E8CC62282513D009FC008 /* ProductsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsDataSource.swift; sourceTree = "<group>"; };
+		A10E8CC922825250009FC008 /* RemoteDatabaseDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDatabaseDataSource.swift; sourceTree = "<group>"; };
+		A10E8CCB22825925009FC008 /* FirebaseRemoteDatabaseDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRemoteDatabaseDataSource.swift; sourceTree = "<group>"; };
+		A10E8CCD22825AE3009FC008 /* CartProcutEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartProcutEntity.swift; sourceTree = "<group>"; };
+		A10E8CCF22825B49009FC008 /* RemoteDatabaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDatabaseRepository.swift; sourceTree = "<group>"; };
+		A10E8CD122825E7C009FC008 /* FirebaseException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseException.swift; sourceTree = "<group>"; };
+		A10E8CD322825EE0009FC008 /* GeneralException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralException.swift; sourceTree = "<group>"; };
+		A10E8CD622826051009FC008 /* AddProductToCartUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductToCartUseCase.swift; sourceTree = "<group>"; };
+		A10E8CD82282609D009FC008 /* CartProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartProductModel.swift; sourceTree = "<group>"; };
+		A10E8CDA2282639D009FC008 /* RemoveProductFromCartUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveProductFromCartUseCase.swift; sourceTree = "<group>"; };
+		A10E8CDC2282670B009FC008 /* RetrieveCartProductsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetrieveCartProductsUseCase.swift; sourceTree = "<group>"; };
+		A10E8CDE22826EF7009FC008 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A10F68BE228103C9000BFFFC /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		A10F68C222810416000BFFFC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A10F68C42281041B000BFFFC /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -95,9 +119,7 @@
 		A17BD24522803EDB0011C488 /* CartCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCoordinator.swift; sourceTree = "<group>"; };
 		A17BD247228048FD0011C488 /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		A17BD24A22804B010011C488 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
-		A17BD24C22804C2D0011C488 /* ProductsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsDataSource.swift; sourceTree = "<group>"; };
 		A17BD24E22804C4B0011C488 /* ProductEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductEntity.swift; sourceTree = "<group>"; };
-		A17BD25022804C750011C488 /* ApiProductsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiProductsDataSource.swift; sourceTree = "<group>"; };
 		A17BD25322804F8A0011C488 /* JSONParseException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParseException.swift; sourceTree = "<group>"; };
 		A17BD255228052C20011C488 /* ProductsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsRepository.swift; sourceTree = "<group>"; };
 		A17BD257228053050011C488 /* ReactiveUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveUseCase.swift; sourceTree = "<group>"; };
@@ -146,6 +168,34 @@
 				828035512A268AA0968899D6 /* Pods-ProductsCatalogTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		A10E8CC3228250EC009FC008 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A10E8CC62282513D009FC008 /* ProductsDataSource.swift */,
+				A10E8CC422825131009FC008 /* ApiProductsDataSource.swift */,
+			);
+			path = Products;
+			sourceTree = "<group>";
+		};
+		A10E8CC822825243009FC008 /* RemoteDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				A10E8CC922825250009FC008 /* RemoteDatabaseDataSource.swift */,
+				A10E8CCB22825925009FC008 /* FirebaseRemoteDatabaseDataSource.swift */,
+			);
+			path = RemoteDatabase;
+			sourceTree = "<group>";
+		};
+		A10E8CD522826042009FC008 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				A10E8CD622826051009FC008 /* AddProductToCartUseCase.swift */,
+				A10E8CDA2282639D009FC008 /* RemoveProductFromCartUseCase.swift */,
+				A10E8CDC2282670B009FC008 /* RetrieveCartProductsUseCase.swift */,
+			);
+			path = Cart;
 			sourceTree = "<group>";
 		};
 		A10F68C52281059B000BFFFC /* Collection */ = {
@@ -213,6 +263,7 @@
 				A17BD21822803A860011C488 /* DependencyInjection */,
 				A17BD214227FE9810011C488 /* Support */,
 				A17BD1F4227FE80A0011C488 /* AppDelegate.swift */,
+				A10E8CDE22826EF7009FC008 /* GoogleService-Info.plist */,
 				A17BD1FB227FE80B0011C488 /* Assets.xcassets */,
 				A17BD1FD227FE80B0011C488 /* LaunchScreen.storyboard */,
 				A17BD200227FE80B0011C488 /* Info.plist */,
@@ -232,7 +283,6 @@
 		A17BD214227FE9810011C488 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				A17BD24922804AF60011C488 /* Networking */,
 				A17BD216227FEA670011C488 /* R.generated.swift */,
 				A10F68C322810416000BFFFC /* Localizable.strings */,
 			);
@@ -271,6 +321,7 @@
 		A17BD22522803BD80011C488 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				A17BD24922804AF60011C488 /* Networking */,
 				A17BD22A22803BFD0011C488 /* Entity */,
 				A17BD22922803BF70011C488 /* Repository */,
 				A17BD22822803BF10011C488 /* DataSource */,
@@ -301,8 +352,8 @@
 		A17BD22822803BF10011C488 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				A17BD24C22804C2D0011C488 /* ProductsDataSource.swift */,
-				A17BD25022804C750011C488 /* ApiProductsDataSource.swift */,
+				A10E8CC822825243009FC008 /* RemoteDatabase */,
+				A10E8CC3228250EC009FC008 /* Products */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -311,6 +362,7 @@
 			isa = PBXGroup;
 			children = (
 				A17BD255228052C20011C488 /* ProductsRepository.swift */,
+				A10E8CCF22825B49009FC008 /* RemoteDatabaseRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -319,6 +371,7 @@
 			isa = PBXGroup;
 			children = (
 				A17BD24E22804C4B0011C488 /* ProductEntity.swift */,
+				A10E8CCD22825AE3009FC008 /* CartProcutEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -326,6 +379,7 @@
 		A17BD22B22803C0B0011C488 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				A10E8CD522826042009FC008 /* Cart */,
 				A17BD2592280538F0011C488 /* Products */,
 				A17BD257228053050011C488 /* ReactiveUseCase.swift */,
 			);
@@ -408,6 +462,8 @@
 			isa = PBXGroup;
 			children = (
 				A17BD25322804F8A0011C488 /* JSONParseException.swift */,
+				A10E8CD122825E7C009FC008 /* FirebaseException.swift */,
+				A10E8CD322825EE0009FC008 /* GeneralException.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -424,6 +480,7 @@
 			isa = PBXGroup;
 			children = (
 				A17BD25D228053C20011C488 /* ProductModel.swift */,
+				A10E8CD82282609D009FC008 /* CartProductModel.swift */,
 			);
 			path = Product;
 			sourceTree = "<group>";
@@ -516,6 +573,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A17BD1FF227FE80B0011C488 /* LaunchScreen.storyboard in Resources */,
+				A10E8CDF22826EF8009FC008 /* GoogleService-Info.plist in Resources */,
 				A10F68C122810416000BFFFC /* Localizable.strings in Resources */,
 				A17BD1FC227FE80B0011C488 /* Assets.xcassets in Resources */,
 			);
@@ -557,6 +615,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ProductsCatalog/Pods-ProductsCatalog-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
@@ -564,10 +623,12 @@
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
@@ -575,6 +636,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -640,13 +702,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				A10F68D1228109D6000BFFFC /* UIImageView+Extension.swift in Sources */,
+				A10E8CDD2282670B009FC008 /* RetrieveCartProductsUseCase.swift in Sources */,
 				A17BD22022803B480011C488 /* Coordinator.swift in Sources */,
 				A17BD248228048FD0011C488 /* TabController.swift in Sources */,
+				A10E8CCE22825AE3009FC008 /* CartProcutEntity.swift in Sources */,
+				A10E8CCA22825250009FC008 /* RemoteDatabaseDataSource.swift in Sources */,
 				A17BD23622803D840011C488 /* HomeViewModel.swift in Sources */,
 				A17BD24422803ED30011C488 /* HomeCoordinator.swift in Sources */,
-				A17BD24D22804C2D0011C488 /* ProductsDataSource.swift in Sources */,
+				A10E8CD222825E7C009FC008 /* FirebaseException.swift in Sources */,
+				A10E8CD422825EE0009FC008 /* GeneralException.swift in Sources */,
+				A10E8CCC22825925009FC008 /* FirebaseRemoteDatabaseDataSource.swift in Sources */,
+				A10E8CD722826051009FC008 /* AddProductToCartUseCase.swift in Sources */,
 				A10F68CF2281096E000BFFFC /* ProductCollectionViewCell.swift in Sources */,
 				A17BD1F5227FE80A0011C488 /* AppDelegate.swift in Sources */,
+				A10E8CC522825131009FC008 /* ApiProductsDataSource.swift in Sources */,
 				A17BD23E22803DAA0011C488 /* CartViewModel.swift in Sources */,
 				A17BD23822803D900011C488 /* HomeView.swift in Sources */,
 				A10F68CD2281087F000BFFFC /* UICollectionView+Extension.swift in Sources */,
@@ -656,8 +725,8 @@
 				A10F68C922810714000BFFFC /* ProductsCollectionViewDataSource.swift in Sources */,
 				A17BD22122803B480011C488 /* NavigationCoordination.swift in Sources */,
 				A17BD24B22804B010011C488 /* Endpoint.swift in Sources */,
-				A17BD25122804C750011C488 /* ApiProductsDataSource.swift in Sources */,
 				A17BD25B2280539C0011C488 /* RetrieveProductsUseCase.swift in Sources */,
+				A10E8CC72282513D009FC008 /* ProductsDataSource.swift in Sources */,
 				A17BD24F22804C4B0011C488 /* ProductEntity.swift in Sources */,
 				A17BD24022803DB40011C488 /* CartView.swift in Sources */,
 				A17BD256228052C20011C488 /* ProductsRepository.swift in Sources */,
@@ -666,10 +735,13 @@
 				A17BD25422804F8A0011C488 /* JSONParseException.swift in Sources */,
 				A17BD23222803D730011C488 /* HomeViewController.swift in Sources */,
 				A10F68D322810BA6000BFFFC /* UIView+Extension.swift in Sources */,
+				A10E8CD022825B49009FC008 /* RemoteDatabaseRepository.swift in Sources */,
 				A17BD258228053050011C488 /* ReactiveUseCase.swift in Sources */,
 				A10F68D622811CC4000BFFFC /* LoadableView.swift in Sources */,
 				A17BD22422803B650011C488 /* ApplicationCoordinator.swift in Sources */,
+				A10E8CD92282609D009FC008 /* CartProductModel.swift in Sources */,
 				A17BD24622803EDB0011C488 /* CartCoordinator.swift in Sources */,
+				A10E8CDB2282639D009FC008 /* RemoveProductFromCartUseCase.swift in Sources */,
 				A17BD23422803D7C0011C488 /* HomePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,7 +13,7 @@ class HomePresenter {
     }
     
     func retrieveProducts() {
-        self.retrieveProductsUseCase.execute().subscribe(onNext: { models in
+        self.retrieveProductsUseCase.execute().subscribe(onSuccess: { models in
             let viewModel = ProductViewModel.asArray(mapping: models)
             self.view?.productsFetched(with: viewModel)
         }, onError: { error in

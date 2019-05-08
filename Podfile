@@ -11,6 +11,7 @@ target 'ProductsCatalog' do
   pod 'SnapKit'
   pod 'R.swift'
   pod 'SDWebImage', '~> 5.0'
+  pod 'Firebase/Database'
 
   target 'ProductsCatalogTests' do
     inherit! :search_paths

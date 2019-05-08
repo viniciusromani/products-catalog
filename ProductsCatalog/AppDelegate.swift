@@ -1,12 +1,5 @@
-//
-//  AppDelegate.swift
-//  ProductsCatalog
-//
-//  Created by Vinicius Romani on 06/05/19.
-//  Copyright © 2019 Vinicius Romani. All rights reserved.
-//
-
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window = self.diContainer.resolve(UIWindow.self)
         self.appCoordinator.start()
+        
+        FirebaseApp.configure()
         
         return true
     }

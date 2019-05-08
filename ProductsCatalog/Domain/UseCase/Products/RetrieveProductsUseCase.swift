@@ -1,7 +1,7 @@
 import Foundation
 import RxSwift
 
-struct RetrieveProductsUseCase: ObservableUseCase {
+struct RetrieveProductsUseCase: SingleUseCase {
     typealias Params = Void
     typealias Model = [ProductModel]
     
@@ -11,7 +11,7 @@ struct RetrieveProductsUseCase: ObservableUseCase {
         self.repository = repository
     }
     
-    func execute(with params: Void? = nil) -> Observable<[ProductModel]> {
+    func execute(with params: Void? = nil) -> Single<[ProductModel]> {
         return self.repository.retrieve().map { entities in
             return ProductModel.asArray(mapping: entities)
         }

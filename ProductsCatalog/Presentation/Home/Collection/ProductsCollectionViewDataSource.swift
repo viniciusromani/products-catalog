@@ -1,11 +1,18 @@
 import UIKit
 
+protocol ProductsCollectionViewDataSourceDelegate {
+    func didSelect(product: ProductViewModel)
+}
+
 class ProductsCollectionViewDataSource: NSObject {
     private let collection: UICollectionView
+    private let delegate: ProductsCollectionViewDataSourceDelegate?
     private var viewModel: [ProductViewModel]?
     
-    init(collection: UICollectionView) {
+    init(collection: UICollectionView,
+         delegate: ProductsCollectionViewDataSourceDelegate) {
         self.collection = collection
+        self.delegate = delegate
         
         super.init()
         
@@ -22,7 +29,12 @@ class ProductsCollectionViewDataSource: NSObject {
 }
 
 extension ProductsCollectionViewDataSource: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let product = self.viewModel?[indexPath.row] else {
+            return
+        }
+        self.delegate?.didSelect(product: product)
+    }
 }
 
 extension ProductsCollectionViewDataSource: UICollectionViewDataSource {

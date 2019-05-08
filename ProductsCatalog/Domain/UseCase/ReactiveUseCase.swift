@@ -15,6 +15,10 @@ extension ReactiveUseCase {
     }
 }
 
+protocol CompletableUseCase: ReactiveUseCase {
+    func execute(with params: Params?) -> Completable
+}
+
 protocol SingleUseCase: ReactiveUseCase {
     func execute(with params: Params?) -> Single<Model>
 }

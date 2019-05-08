@@ -1,8 +1,6 @@
 import Foundation
-import Moya
-import RxSwift
 
-private struct ProductsResponse {
+struct ProductsResponse {
     let products: [ProductEntity]
 }
 
@@ -18,6 +16,7 @@ extension ProductsResponse: Decodable {
 }
 
 struct ProductEntity {
+    let id: String
     let imageURL: String?
     let name: String
     let isOnSale: Bool
@@ -26,8 +25,9 @@ struct ProductEntity {
     let discountPercentage: String?
     let sizes: [SizeEntity]
 }
-extension ProductEntity: Codable {
+extension ProductEntity: Decodable {
     private enum CodingKeys: String, CodingKey {
+        case id = "style"
         case imageURL = "image"
         case name
         case isOnSale = "on_sale"
@@ -39,6 +39,7 @@ extension ProductEntity: Codable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decode(String.self, forKey: .id)
         self.imageURL = try container.decodeIfPresent(String.self, forKey: .imageURL)
         self.name = try container.decode(String.self, forKey: .name)
         self.isOnSale = try container.decode(Bool.self, forKey: .isOnSale)
@@ -46,11 +47,6 @@ extension ProductEntity: Codable {
         self.promotionalPrice = try container.decodeIfPresent(String.self, forKey: .promotionalPrice)
         self.discountPercentage = try container.decodeIfPresent(String.self, forKey: .discountPercentage)
         self.sizes = try container.decode([SizeEntity].self, forKey: .sizes)
-    }
-    
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(self.name, forKey: .name)
     }
 }
 
@@ -68,18 +64,5 @@ extension SizeEntity: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.isAvailable = try container.decode(Bool.self, forKey: .isAvailable)
         self.description = try container.decode(String.self, forKey: .description)
-    }
-}
-
-extension ObservableType where E == Response {
-    func mapProductEntities() -> Observable<[ProductEntity]> {
-        let mapper = self.flatMap { response -> Observable<[ProductEntity]> in
-            guard let response = try? JSONDecoder().decode(ProductsResponse.self, from: response.data) else {
-                let error = JSONParseException()
-                return Observable.error(error)
-            }
-            return Observable.just(response.products)
-        }
-        return mapper
     }
 }

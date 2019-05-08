@@ -8,7 +8,7 @@ struct ProductsRepository {
         self.dataSource = dataSource
     }
     
-    func retrieve() -> Observable<[ProductEntity]> {
+    func retrieve() -> Single<[ProductEntity]> {
         return self.dataSource.retrieve()
     }
 }

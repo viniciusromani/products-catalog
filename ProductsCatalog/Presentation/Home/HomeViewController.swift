@@ -9,7 +9,8 @@ class HomeViewController: UIViewController {
     
     var homeView: HomeView!
     var presenter: HomePresenter
-    lazy var dataSource = ProductsCollectionViewDataSource(collection: self.homeView.collection)
+    lazy var dataSource = ProductsCollectionViewDataSource(collection: self.homeView.collection,
+                                                           delegate: self)
     
     init(presenter: HomePresenter) {
         self.presenter = presenter
@@ -41,5 +42,11 @@ extension HomeViewController: HomeViewProtocol {
     
     func errorGettingProducts() {
         print("error")
+    }
+}
+
+extension HomeViewController: ProductsCollectionViewDataSourceDelegate {
+    func didSelect(product: ProductViewModel) {
+        print("select item \(product.name)")
     }
 }

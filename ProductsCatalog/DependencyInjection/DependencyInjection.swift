@@ -1,5 +1,6 @@
-import Swinject
+import FirebaseDatabase
 import Moya
+import Swinject
 
 class DependencyInjection {
     
@@ -8,6 +9,7 @@ class DependencyInjection {
     static func configure() -> Container {
         self.injectCoordinators(on: self.container)
         self.injectNetworkProvider(on: self.container)
+        self.injectRemoteDatabase(on: self.container)
         self.injectDataSource(on: self.container)
         self.injectRepository(on: self.container)
         self.injectUseCase(on: self.container)
@@ -64,9 +66,19 @@ extension DependencyInjection {
         }
     }
     
+    private static func injectRemoteDatabase(on container: Container) {
+        container.register(DatabaseReference.self) { _ in
+            return Database.database().reference()
+        }
+    }
+    
     private static func injectDataSource(on container: Container) {
         container.register(ProductsDataSource.self) { resolver in
             return ApiProductsDataSource(provider: resolver.resolve(MoyaProvider<Endpoint>.self)!)
+        }
+        
+        container.register(RemoteDatabaseDataSource.self) { resolver in
+            return FirebaseRemoteDatabaseDataSource(database: resolver.resolve(DatabaseReference.self)!)
         }
     }
 
@@ -74,11 +86,27 @@ extension DependencyInjection {
         container.register(ProductsRepository.self) { resolver in
             return ProductsRepository(dataSource: resolver.resolve(ProductsDataSource.self)!)
         }
+        
+        container.register(RemoteDatabaseRepository.self) { resolver in
+            return RemoteDatabaseRepository(dataSource: resolver.resolve(RemoteDatabaseDataSource.self)!)
+        }
     }
     
     private static func injectUseCase(on container: Container) {
         container.register(RetrieveProductsUseCase.self) { resolver in
             return RetrieveProductsUseCase(repository: resolver.resolve(ProductsRepository.self)!)
+        }
+        
+        container.register(AddProductToCartUseCase.self) { resolver in
+            return AddProductToCartUseCase(repository: resolver.resolve(RemoteDatabaseRepository.self)!)
+        }
+        
+        container.register(RemoveProductFromCartUseCase.self) { resolver in
+            return RemoveProductFromCartUseCase(repository: resolver.resolve(RemoteDatabaseRepository.self)!)
+        }
+        
+        container.register(RetrieveCartProductsUseCase.self) { resolver in
+            return RetrieveCartProductsUseCase(repository: resolver.resolve(RemoteDatabaseRepository.self)!)
         }
     }
     
