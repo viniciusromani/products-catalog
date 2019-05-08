@@ -15,5 +15,5 @@
 "general-added" = "Adicionado";
 "general-cancel" = "Cancelar";
 "general-delete" = "Deletar";
-"general-networkError" = "Ops! There was something wrong but double check your internet connection and try again :)";
+"general-networkError" = "Ops! Ocorreu um erro na sua chamada mas verifique sua internet e tente novamente :)";
 "general-tryAgain" = "Try again";

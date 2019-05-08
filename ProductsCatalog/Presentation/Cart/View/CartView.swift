@@ -49,7 +49,7 @@ class CartView: UIView, LoadableView, EmptableView {
         footer.snp.makeConstraints { make in
             make.top.equalTo(self.tableView.snp.bottom)
             make.left.right.equalToSuperview()
-            make.bottom.equalToSuperview().inset(49)
+            make.bottom.equalToSuperview().inset(49 + iPhoneXHackInset - 20)
         }
     }
 }

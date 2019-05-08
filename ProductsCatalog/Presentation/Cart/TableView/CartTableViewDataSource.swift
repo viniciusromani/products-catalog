@@ -84,7 +84,7 @@ extension CartTableViewDataSource: UITableViewDataSource {
         let indexPath = IndexPath(row: sender.tag, section: 0)
         self.indexPathToBeRemoved = indexPath
         self.delegate.didClickOnDelete(for: viewModel)
-        tableView.reloadRows(at: [indexPath], with: .fade)
+        self.tableView.reloadRows(at: [indexPath], with: .fade)
     }
 }
 
@@ -102,7 +102,7 @@ extension CartTableViewDataSource {
         self.viewModel?.remove(at: indexPath.row)
         self.indexPathToBeRemoved = nil
         
-        self.tableView.deleteRows(at: [indexPath], with: .fade)
+        self.tableView.reloadAnimated()
         if self.viewModel?.count ?? 0 == 0 {
             self.delegate.noProductsAnymore()
         }
