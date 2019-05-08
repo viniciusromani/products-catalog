@@ -7,8 +7,13 @@
 // Cart
 "cart-navigationTitle" = "Carrinho";
 "cart-buy" = "Comprar";
+"cart-emptyMessage" = "Você ainda não tem nenhum produto no carrinho, da uma olhada no nosso catálogo :)";
 
 // General
+"general-ok" = "Ok";
+"general-add" = "Adicionar";
+"general-added" = "Adicionado";
+"general-cancel" = "Cancelar";
 "general-delete" = "Deletar";
 "general-networkError" = "Ops! There was something wrong but double check your internet connection and try again :)";
 "general-tryAgain" = "Try again";

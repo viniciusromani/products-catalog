@@ -2,6 +2,7 @@ import UIKit
 
 protocol CartTableViewDataSourceDelegate {
     func didClickOnDelete(for product: CartProductViewModel)
+    func noProductsAnymore()
 }
 
 class CartTableViewDataSource: NSObject {
@@ -18,7 +19,6 @@ class CartTableViewDataSource: NSObject {
         
         super.init()
         
-        tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableView.automaticDimension
         tableView.registerCell(CartProductTableViewCell.self)
         tableView.dataSource = self
@@ -100,9 +100,9 @@ extension CartTableViewDataSource {
         self.viewModel?.remove(at: indexPath.row)
         self.indexPathToBeRemoved = nil
         
-        let isViewModelEmpty = self.viewModel?.count ?? 0 > 0
-        isViewModelEmpty ?
-            self.tableView.reloadAnimated():
-            self.tableView.deleteRows(at: [indexPath], with: .fade)
+        self.tableView.deleteRows(at: [indexPath], with: .fade)
+        if self.viewModel?.count ?? 0 == 0 {
+            self.delegate.noProductsAnymore()
+        }
     }
 }

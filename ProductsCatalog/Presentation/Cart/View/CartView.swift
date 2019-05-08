@@ -1,10 +1,11 @@
 import UIKit
 
-class CartView: UIView, LoadableView {
+class CartView: UIView, LoadableView, EmptableView {
     let tableView = UITableView()
     private let footer = CartFooterView()
     
     var activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
+    var emptyStateView: UIView = CartEmptyStateView()
     
     init() {
         super.init(frame: .zero)
@@ -30,6 +31,9 @@ class CartView: UIView, LoadableView {
         self.backgroundColor = R.color.backgroundColor()
         
         self.activityIndicator.color = .gray
+        
+        self.tableView.backgroundColor = R.color.backgroundColor()
+        self.tableView.tableFooterView = UIView()
     }
     
     private func addConstraintsToSubviews() {
@@ -51,5 +55,19 @@ extension CartView {
     
     func removeLoading() {
         self.hideLoading()
+    }
+    
+    func displayError() {
+        (self.emptyStateView as! CartEmptyStateView).setErrorState()
+        self.displayEmptyState(at: self)
+    }
+    
+    func displayEmpty() {
+        (self.emptyStateView as! CartEmptyStateView).setEmptyState()
+        self.displayEmptyState(at: self)
+    }
+    
+    func removeEmpty() {
+        self.hideEmptyState()
     }
 }

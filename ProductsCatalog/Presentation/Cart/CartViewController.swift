@@ -41,11 +41,14 @@ class CartViewController: UIViewController {
 extension CartViewController: CartViewProtocol {
     func cartProductsFetched(with viewModel: [CartProductViewModel]) {
         self.cartView.removeLoading()
+        self.cartView.removeEmpty()
         self.dataSource.setProducts(with: viewModel)
     }
     
     func errorGettingProducts() {
-        
+        self.cartView.removeLoading()
+        self.cartView.removeEmpty()
+        self.cartView.displayError()
     }
     
     func productHasBeenRemoved() {
@@ -60,5 +63,9 @@ extension CartViewController: CartViewProtocol {
 extension CartViewController: CartTableViewDataSourceDelegate {
     func didClickOnDelete(for product: CartProductViewModel) {
         self.presenter.removeProduct(product)
+    }
+    
+    func noProductsAnymore() {
+        self.cartView.displayEmpty()
     }
 }

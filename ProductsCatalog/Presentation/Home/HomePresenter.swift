@@ -66,11 +66,9 @@ class HomePresenter {
         let cartProductModel = CartProductModel(mapping: cartProductViewModel)
         let addParams = AddProductToCartUseCase.Params(product: cartProductModel)
         self.addProductToCartUseCase.execute(with: addParams).subscribe(onCompleted: {
-            // success
-            print("added")
+            self.view?.productWasAdded()
         }, onError: { error in
-            // error
-            print("not added")
+            self.view?.errorAddingProduct()
         }).disposed(by: self.disposeBag)
     }
 }

@@ -7,8 +7,13 @@
 // Cart
 "cart-navigationTitle" = "Cart";
 "cart-buy" = "Buy";
+"cart-emptyMessage" = "Your cart is still empty but you should take a look on our catalog :)";
 
 // General
+"general-ok" = "Ok";
+"general-add" = "Add";
+"general-added" = "Added";
+"general-cancel" = "Cancel";
 "general-delete" = "Delete";
 "general-networkError" = "Ops! Ocorreu um erro na sua chamada mas verifique sua internet e tente novamente :)";
 "general-tryAgain" = "Tente novamente";

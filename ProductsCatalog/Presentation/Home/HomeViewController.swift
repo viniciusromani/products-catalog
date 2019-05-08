@@ -5,6 +5,8 @@ protocol HomeViewProtocol: class {
     func errorGettingProducts()
     
     func askUserAboutAddToCart(with viewModel: AlertToCartViewModel)
+    func productWasAdded()
+    func errorAddingProduct()
 }
 
 class HomeViewController: UIViewController {
@@ -62,14 +64,27 @@ extension HomeViewController: HomeViewProtocol {
         let alert = UIAlertController(title: viewModel.title,
                                       message: viewModel.message,
                                       preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Adicionar", style: .default) { _ in
+        let okAction = UIAlertAction(title: R.string.localizable.generalAdd(), style: .default) { _ in
             self.presenter.addProduct(viewModel.product)
         }
-        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel) { _ in }
+        let cancelAction = UIAlertAction(title: R.string.localizable.generalCancel(), style: .cancel) { _ in }
         alert.addAction(okAction)
         alert.addAction(cancelAction)
         
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func productWasAdded() {
+        let alert = UIAlertController(title: R.string.localizable.generalAdded(),
+                                      message: nil,
+                                      preferredStyle: .alert)
+        let action = UIAlertAction(title: R.string.localizable.generalOk(), style: .default) { _ in }
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func errorAddingProduct() {
+        
     }
 }
 
