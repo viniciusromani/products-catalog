@@ -29,12 +29,14 @@ class CartViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.cartView.displayLoading()
         self.presenter.retrieveProducts()
     }
 }
 
 extension CartViewController: CartViewProtocol {
     func cartProductsFetched(with viewModel: [CartProductViewModel]) {
+        self.cartView.removeLoading()
         self.dataSource.setProducts(with: viewModel)
     }
     

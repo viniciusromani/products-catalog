@@ -46,7 +46,7 @@ class CartView: UIView, LoadableView {
 
 extension CartView {
     func displayLoading() {
-        self.showLoading(at: self.tableView)
+        self.showLoading(at: self)
     }
     
     func removeLoading() {
