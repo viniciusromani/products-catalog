@@ -19,7 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = self.diContainer.resolve(UIWindow.self)
         self.appCoordinator.start()
         
-        FirebaseApp.configure()
+        if let filePath = Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist"),
+            let options = FirebaseOptions(contentsOfFile: filePath) {
+            FirebaseApp.configure(options: options)
+        }
         
         return true
     }

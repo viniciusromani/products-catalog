@@ -118,6 +118,7 @@
 		A10F68D222810BA6000BFFFC /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		A10F68D522811CC3000BFFFC /* LoadableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadableView.swift; sourceTree = "<group>"; };
 		A12DA0622283254C001499CC /* CachedNumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedNumberFormatter.swift; sourceTree = "<group>"; };
+		A12DA06422838037001499CC /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A17BD1F1227FE80A0011C488 /* ProductsCatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProductsCatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A17BD1F4227FE80A0011C488 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A17BD1FB227FE80B0011C488 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -337,6 +338,7 @@
 		A17BD214227FE9810011C488 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				A12DA06422838037001499CC /* GoogleService-Info.plist */,
 				A17BD216227FEA670011C488 /* R.generated.swift */,
 				A10F68C322810416000BFFFC /* Localizable.strings */,
 				A12DA0622283254C001499CC /* CachedNumberFormatter.swift */,
