@@ -3,6 +3,8 @@ import UIKit
 protocol HomeViewProtocol: class {
     func productsFetched(with viewModel: [ProductViewModel])
     func errorGettingProducts()
+    
+    func askUserAboutAddToCart(with viewModel: AlertToCartViewModel)
 }
 
 class HomeViewController: UIViewController {
@@ -43,10 +45,14 @@ extension HomeViewController: HomeViewProtocol {
     func errorGettingProducts() {
         print("error")
     }
+    
+    func askUserAboutAddToCart(with viewModel: AlertToCartViewModel) {
+        print(viewModel)
+    }
 }
 
 extension HomeViewController: ProductsCollectionViewDataSourceDelegate {
     func didSelect(product: ProductViewModel) {
-        print("select item \(product.name)")
+        self.presenter.userSelected(product: product)
     }
 }

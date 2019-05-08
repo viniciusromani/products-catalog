@@ -39,4 +39,13 @@ extension SizeModel {
     static func asArray(mapping entities: [SizeEntity]) -> [SizeModel] {
         return entities.compactMap { SizeModel(mapping: $0) }
     }
+    
+    init(mapping viewModel: SizeViewModel) {
+        self.isAvailable = viewModel.isAvailable
+        self.description = viewModel.description
+    }
+    
+    static func asArray(mapping viewModels: [SizeViewModel]) -> [SizeModel] {
+        return viewModels.compactMap { SizeModel(mapping: $0) }
+    }
 }

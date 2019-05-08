@@ -2,12 +2,14 @@ import FirebaseDatabase
 import Foundation
 import RxSwift
 
-struct FirebaseRemoteDatabaseDataSource: RemoteDatabaseDataSource {
-    private let database: DatabaseReference
+class FirebaseRemoteDatabaseDataSource: RemoteDatabaseDataSource {
+    private lazy var database: DatabaseReference = {
+        return Database.database().reference()
+    }()
     private let basicPath = "cart-products_db"
     
-    init(database: DatabaseReference) {
-        self.database = database
+    init() {
+        
     }
     
     func addProductToCart(with id: String,

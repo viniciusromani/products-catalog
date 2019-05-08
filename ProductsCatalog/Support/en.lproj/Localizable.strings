@@ -1,6 +1,8 @@
 
 // Home
 "home-navigationTitle" = "Catalog";
+"home-alertToCartTitle" = "Cart!";
+"home-alertToCartMessage" = "Would you like to add %@ in your cart?\n\nIt will be added 1 %@\n\nAvailable sizes: %@";
 
 // Cart
 "cart-navigationTitle" = "Cart";

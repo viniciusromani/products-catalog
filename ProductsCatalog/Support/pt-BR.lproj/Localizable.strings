@@ -1,6 +1,8 @@
 
 // Home
 "home-navigationTitle" = "Catálogo";
+"home-alertToCartTitle" = "Carrinho!";
+"home-alertToCartMessage" = "Você deseja adicionar o produto %@ no carrinho? \n\nObs. Será adicionado 1 unidade %@\n\nTam. disponíveis: %@";
 
 // Cart
 "cart-navigationTitle" = "Carrinho";

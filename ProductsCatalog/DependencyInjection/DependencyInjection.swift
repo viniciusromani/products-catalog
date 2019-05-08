@@ -78,7 +78,7 @@ extension DependencyInjection {
         }
         
         container.register(RemoteDatabaseDataSource.self) { resolver in
-            return FirebaseRemoteDatabaseDataSource(database: resolver.resolve(DatabaseReference.self)!)
+            return FirebaseRemoteDatabaseDataSource()
         }
     }
 
@@ -108,11 +108,17 @@ extension DependencyInjection {
         container.register(RetrieveCartProductsUseCase.self) { resolver in
             return RetrieveCartProductsUseCase(repository: resolver.resolve(RemoteDatabaseRepository.self)!)
         }
+        
+        container.register(RetrieveAvailableSizesUseCase.self) { resolver in
+            return RetrieveAvailableSizesUseCase()
+        }
     }
     
     private static func injectPresenter(on container: Container) {
         container.register(HomePresenter.self) { resolver in
-            return HomePresenter(retrieveProductsUseCase: resolver.resolve(RetrieveProductsUseCase.self)!)
+            return HomePresenter(retrieveProductsUseCase: resolver.resolve(RetrieveProductsUseCase.self)!,
+                                 retrieveAvailableSizesUseCase: resolver.resolve(RetrieveAvailableSizesUseCase.self)!,
+                                 addProductToCartUseCase: resolver.resolve(AddProductToCartUseCase.self)!)
         }
         
         container.register(CartPresenter.self) { _ in
