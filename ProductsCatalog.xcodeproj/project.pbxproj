@@ -22,7 +22,6 @@
 		A10E8CDD2282670B009FC008 /* RetrieveCartProductsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E8CDC2282670B009FC008 /* RetrieveCartProductsUseCase.swift */; };
 		A10E8CE52282810C009FC008 /* RetrieveAvailableSizesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E8CE42282810C009FC008 /* RetrieveAvailableSizesUseCase.swift */; };
 		A10E8CE72282811E009FC008 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E8CE62282811E009FC008 /* UseCase.swift */; };
-		A10E8CE922828846009FC008 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A10E8CE822828846009FC008 /* GoogleService-Info.plist */; };
 		A10E8CED22828D71009FC008 /* CartFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E8CEC22828D71009FC008 /* CartFooterView.swift */; };
 		A10E8CEF22828EC6009FC008 /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E8CEE22828EC6009FC008 /* UIStackView+Extension.swift */; };
 		A10E8CF122829017009FC008 /* CartTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E8CF022829017009FC008 /* CartTableViewDataSource.swift */; };
@@ -40,6 +39,7 @@
 		A10F68D322810BA6000BFFFC /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F68D222810BA6000BFFFC /* UIView+Extension.swift */; };
 		A10F68D622811CC4000BFFFC /* LoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F68D522811CC3000BFFFC /* LoadableView.swift */; };
 		A12DA0632283254C001499CC /* CachedNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12DA0622283254C001499CC /* CachedNumberFormatter.swift */; };
+		A12DA0652283857E001499CC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A12DA06422838037001499CC /* GoogleService-Info.plist */; };
 		A17BD1F5227FE80A0011C488 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17BD1F4227FE80A0011C488 /* AppDelegate.swift */; };
 		A17BD1FC227FE80B0011C488 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A17BD1FB227FE80B0011C488 /* Assets.xcassets */; };
 		A17BD1FF227FE80B0011C488 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17BD1FD227FE80B0011C488 /* LaunchScreen.storyboard */; };
@@ -634,8 +634,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A12DA0652283857E001499CC /* GoogleService-Info.plist in Resources */,
 				A17BD1FF227FE80B0011C488 /* LaunchScreen.storyboard in Resources */,
-				A10E8CE922828846009FC008 /* GoogleService-Info.plist in Resources */,
 				A10F68C122810416000BFFFC /* Localizable.strings in Resources */,
 				A17BD1FC227FE80B0011C488 /* Assets.xcassets in Resources */,
 			);
